@@ -1,0 +1,43 @@
+#!/usr/bin/env php
+<?php
+if (!is_writable('.'))
+{
+	echo "Your current dir is not writable!"; 
+	exit;
+}
+
+echo "Enter your name: ";
+
+$user = trim(fgets(STDIN));
+
+while (!$birthday)
+{
+	echo "Enter your birthday date like (dd/mm/yyyy): ";
+	$birthday = trim(fgets(STDIN));
+	if (!preg_match("#\d{2}/\d{2}/\d{4}#",$birthday)) 
+		{
+		echo "Incorrect, try again";
+		}
+}
+echo "Thanks! And give me some description about you.";
+
+$descr = trim(fgets(STDIN));
+
+echo "Want to see your form? (Y/N) [Y]: ";
+
+$line = trim(fgets(STDIN));
+
+$template = <<<HTML
+Profile by $user
+Birthday: $birthday
+About: $descr
+HTML;
+
+if ($line == 'n' || $line == 'N')
+{
+	file_put_contents("./result_form", $template);
+}
+else
+{
+	echo $template;
+}

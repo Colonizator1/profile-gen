@@ -1,0 +1,16 @@
+{
+    "name": "colonizator/profile-gen",
+    "description": "people's profiles",
+    "authors": [
+        {
+            "name": "Colonizator",
+            "email": "art8573669@gmail.com"
+        }
+    ],
+    "require": {
+    	"php": "^7.2"
+    },
+    "bin": [
+    	"fillForm"
+    ]
+}
